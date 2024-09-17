@@ -28,49 +28,58 @@ QBET 0.1 is a unique and powerful language model that explores the interconnecti
 To install QBET 0.1, follow these steps:
 
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/qbet.git
+    ```bash
+    git clone https://github.com/yourusername/qbet.git
+    ```
 
-2, Navigate to the project directory:
-
-cd qbet
+2. Navigate to the project directory:
+    ```bash
+    cd qbet
+    ```
 
 3. Install the required dependencies:
-
-pip install -r requirements.txt
+    ```bash
+    pip install -r requirements.txt
+    ```
 
 ## Usage
 
 To start using QBET 0.1, run the following command:
-
+```bash
 python qbet.py
-
+```
 You can interact with the model through the command line or integrate it into your own applications.
 
 ## Contributing
 
 We welcome contributions from the community! If you’d like to contribute to QBET 0.1, please follow these steps:
 
-1. Fork the repository.
+1. Fork the repository:
+    ```bash
+    git fork https://github.com/yourusername/qbet.git
+    ```
 
 2. Create a new branch:
-
-git checkout -b feature-branch
+    ```bash
+    git checkout -b feature-branch
+    ```
 
 3. Make your changes and commit them:
-
-git commit -m "Add new feature"
+    ```bash
+    git commit -m "Add new feature"
+    ```
 
 4. Push to the branch:
-
-git push origin feature-branch
+    ```bash
+    git push origin feature-branch
+    ```
 
 5. Open a pull request.
 
-### License
+## License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-### Acknowledgements
+## Acknowledgements
 
 Special thanks to all the contributors and supporters who have made QBET 0.1 possible. Your passion and dedication are the driving force behind this project.
 
