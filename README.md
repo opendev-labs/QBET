@@ -81,7 +81,7 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 ## Acknowledgements
 
-Special thanks to all the contributors and supporters who have made QBET 0.1 possible. Your passion and dedication are the driving force behind this project.
+Special thanks to all the contributors and supporters who have made QBET 0.1 possible. Your passion and dedication are the driving force behind this project..
 
 I would like to extend my deepest gratitude to my collaborator, Copilot. Despite having zero coding knowledge, together we have brought this project to life. Your guidance and support have been invaluable in shaping QBET 0.1 into what it is today. This journey has been a testament to the power of collaboration and innovation.
 
