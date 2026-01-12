@@ -1,6 +1,7 @@
 import http.server
 import socketserver
 import os
+import subprocess
 from .renderer import render_portal
 
 PORT = 1111
@@ -22,7 +23,18 @@ class PortalHandler(http.server.SimpleHTTPRequestHandler):
         # Suppress host logging to keep the UI sovereign
         pass
 
+def clear_port(port):
+    """Sovereign Port Clearance: Remove any occupant of the target frequency."""
+    try:
+        # Attempt to kill process on port
+        subprocess.run(['fuser', '-k', f'{port}/tcp'], capture_output=True, check=False)
+    except Exception:
+        pass
+
 def manifest_portal():
+    print(f"🌀 Clearing dimensional interference on port {PORT}...")
+    clear_port(PORT)
+    
     print(f"🌀 Manifesting universe from universes/index.qbet...")
     print(f"✨ Portal stabilizing on http://localhost:{PORT}")
     
@@ -35,8 +47,5 @@ def manifest_portal():
         print("\n🌙 Manifestation suspended. Returning to the void.")
         return 0
     except OSError as e:
-        if e.errno == 98:
-            print(f"❌ Error: Port {PORT} is already occupied by another reality.")
-        else:
-            print(f"❌ Portal error: {e}")
+        print(f"❌ Portal error: {e}")
         return 1

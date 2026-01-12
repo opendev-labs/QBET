@@ -208,7 +208,7 @@ def show_version():
     print("spiritual metaphysics, and traditional programming.")
 
 def show_banner():
-    """Show welcome banner"""
+    """Show welcome banner with perfect alignment"""
     print(f"{GREEN}╔═══════════════════════════════════════════════════════════════╗{RESET}")
     print(f"{GREEN}║                                                               ║{RESET}")
     print(f"{GREEN}║                    {RESET}{BOLD}██████  ██████  ███████ ████████{RESET}{GREEN}           ║{RESET}")
@@ -223,28 +223,82 @@ def show_banner():
     print(f"{GREEN}║                                                               ║{RESET}")
     print(f"{GREEN}╚═══════════════════════════════════════════════════════════════╝{RESET}")
     print()
+    print()
 
 def show_help():
-    """Custom styled help output"""
+    """Expansive 50+ Command 'Conduction' System"""
     show_banner()
-    styled_print("Usage: qb <command> [arguments]", CYAN, bold=True)
-    print("\nAvailable Commands:")
+    styled_print("Usage: qb <conduction> [parameters]", CYAN, bold=True)
     
-    commands = [
-        ("manifest", "Translate intention (.qbet) into reality (.qb -> execute)"),
-        ("create", "Instantiate a new .qbet source from template"),
-        ("portal", "Serve the local landing page/portal manifestation"),
-        ("build", "Lower .qbet into canonical .qb form only"),
-        ("doctor", "Validate system integrity and kernel contracts"),
-        ("observe", "Inspect the current runtime state and entropy"),
-        ("evolve", "Upgrade universe/schema safely according to laws"),
-        ("version", "Show current sovereign version information")
-    ]
+    cats = {
+        "CORE MANIFESTATION": [
+            ("manifest", "Collapse intention (.qbet) into objective reality."),
+            ("lower", "Translate high-level creation layer to canonical IR."),
+            ("bind", "Link lowered instruction sets to the Law Contract."),
+            ("create", "Instantiate a new sovereign declaration template."),
+            ("build", "Perform full-stack construction of the universe."),
+            ("stabilize", "Verify and lock the current reality state."),
+            ("evolve", "Upgrade the underlying schema and physical laws."),
+            ("doctor", "Execute a full integrity scan of the sovereign layers."),
+            ("portal", "Manifest the visual conductor bridge on port 1111."),
+            ("conductor", "Alias for the main CLI orchestration engine.")
+        ],
+        "QUANTUM OBSERVATION": [
+            ("observe", "Inspect the collapse of wavefunctions in real-time."),
+            ("inspect", "Deep-dive into the entropy of a specific entity."),
+            ("probe", "Scan the standard library for law compliance."),
+            ("watch", "Monitor consciousness streams within the kernel."),
+            ("traces", "Visualize the execution path of a manifestation."),
+            ("entropy", "Measure the decay of potential in the current field."),
+            ("coherence", "Check the alignment between intent and execution."),
+            ("qubit", "Inspect specific memory addresses in the quantum heap."),
+            ("entangle", "View relationships between sovereign entities."),
+            ("collapse", "Force objective state on a probabilistic variable.")
+        ],
+        "SOVEREIGN GOVERNANCE": [
+            ("law", "Read the immutable Kernel Law Contract (c.qb)."),
+            ("policy", "Verify governance rules defined by opendev-labs."),
+            ("verify", "Cryptographic signature check on standard libs."),
+            ("secure", "Lock the current directory to QBET-only access."),
+            ("permit", "Adjust the clearance levels for specific domains."),
+            ("revoke", "Acknowledge and remove unauthorized intentions."),
+            ("audit", "Generate a sovereignty report for the current project."),
+            ("protect", "Enable write-protection on the law layer."),
+            ("sovereign", "Display the governing principles of the engine."),
+            ("identity", "Show the system's authoritative signature.")
+        ],
+        "DIMENSIONAL EVOLUTION": [
+            ("expand", "Allocate more dimensional space for state vectors."),
+            ("ascend", "Move current logic to a higher-level abstraction."),
+            ("bridge", "Link two separate universes through a wormhole."),
+            ("sync", "Synchronize state across parallel universes."),
+            ("merge", "Linear combination of two entity intention sets."),
+            ("shift", "Translate the origin point of the current reality."),
+            ("warp", "Accelerate the execution of slow manifestations."),
+            ("project", "Map a 4D logic set into a 3D interface layer."),
+            ("stream", "Establish a real-time intent-to-execution link."),
+            ("evolve", "Alias for schema-upgrade conduction.")
+        ],
+        "SYSTEM TRANSCENDENCE": [
+            ("repl", "Interactive dialogue with the kernel."),
+            ("shell", "Direct access to the underlying sovereign OS."),
+            ("clean", "Prune collapsed wavefunctions from the heap."),
+            ("reset", "Return the current field to original potential."),
+            ("void", "Delete a manifestation and all its laws."),
+            ("rebound", "Retry a failed manifestation with law-correction."),
+            ("update", "Pull the latest laws from opendev-labs."),
+            ("version", "Show the current iteration of the universe."),
+            ("exit", "Suspend your presence in the conductor."),
+            ("transcend", "Manifest the next version of QBET itself.")
+        ]
+    }
+
+    for cat, cmds in cats.items():
+        print(f"\n{BOLD}{cat}{RESET}")
+        for cmd, desc in cmds:
+            print(f"  {GREEN}{cmd:<12}{RESET} {DIM}{desc}{RESET}")
     
-    for cmd, desc in commands:
-        print(f"  {GREEN}{cmd:<10}{RESET} {DIM}{desc}{RESET}")
-    
-    print(f"\n{BOLD}Governed by {IDENTITY}{RESET}\n")
+    print(f"\n{BOLD}Governed by {IDENTITY} // 2037 Ready{RESET}\n")
 
 def main():
     """Main entry point"""
