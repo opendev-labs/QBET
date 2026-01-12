@@ -91,5 +91,5 @@ QBET is an authoritative project exclusively governed by **opendev-labs**. It is
 ---
 
 <div align="center">
-  <p>© 2026 opendev-labs // Stabilized Reality // 2037 Ready</p>
+  <p>© 2026 opendev-labs // Stabilized Reality // </p>
 </div>
