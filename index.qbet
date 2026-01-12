@@ -1,0 +1,18 @@
+# QBET Portal Manifestation
+# This file defines the reality of the local portal.
+
+universe Portal {
+    purpose: "manifest_qbet_identity"
+    scale: macro
+    stability: absolute
+    port: 1111
+}
+
+manifest Hero within Portal {
+    title: "QBET: The Sovereign Creation Language"
+    subtitle: "Declare reality. Observe emergence."
+    theme: "void-orange"
+}
+
+flow time forward
+observe Portal

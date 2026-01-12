@@ -71,19 +71,20 @@ def show_version():
 
 def show_banner():
     """Show welcome banner"""
-    print("╔═══════════════════════════════════════════════════════════╗")
-    print("║                                                           ║")
-    print("║                    ██████  ██████  ███████ ████████      ║")
-    print("║                   ██    ██ ██   ██ ██         ██         ║")
-    print("║                   ██    ██ ██████  █████      ██         ║")
-    print("║                   ██ ▄▄ ██ ██   ██ ██         ██         ║")
-    print("║                    ██████  ██████  ███████    ██         ║")
-    print("║                       ▀▀                                 ║")
-    print("║                                                           ║")
-    print("║          Quantum-Spiritual Programming Language          ║")
-    print(f"║                      Version {VERSION}                       ║")
-    print("║                                                           ║")
-    print("╚═══════════════════════════════════════════════════════════╝")
+    print("╔═══════════════════════════════════════════════════════════════╗")
+    print("║                                                               ║")
+    print("║                    ██████  ██████  ███████ ████████           ║")
+    print("║                   ██    ██ ██   ██ ██         ██              ║")
+    print("║                   ██    ██ ██████  █████      ██              ║")
+    print("║                   ██ ▄▄ ██ ██   ██ ██         ██              ║")
+    print("║                    ██████  ██████  ███████    ██              ║")
+    print("║                       ▀▀                                      ║")
+    print("║                                                               ║")
+    print("║            The Creation-Oriented Programming Language         ║")
+    print(f"║                         Version {VERSION}                         ║")
+    print("║                                                               ║")
+    print("╚═══════════════════════════════════════════════════════════════╝")
+    print()
     print()
 
 def main():
