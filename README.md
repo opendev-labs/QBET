@@ -111,13 +111,11 @@ The user experience is restricted to the sovereign `qbet` CLI. There is no expos
 
 ---
 
----
-
 ## 📜 Final Principle
 
 **QBET does not simulate the universe. It mirrors the logic by which universes are formed.**
 
 ---
 
-**Organization:** [opendev-labs](https://github.com/opendev-labs)  
+**Organization:** [opendev-labs](https://github.com/opendev-labs)
 **Created by:** [@iamyash.io](https://instagram.com/iamyash.io)
