@@ -43,13 +43,17 @@ QBET features an expansive conduction set grouped into five authoritative catego
 
 ---
 
-## 📦 Global Distribution
+## 📦 Distribution
 
-QBET is distributed as a **Classic Confinement Snap**, ensuring a secure, sandboxed, and sovereign execution environment following the industry standards of `go` and `ruby`.
+QBET is currently in **Sovereign Staging**. While registration with the Global Snap Store is pending, you can manifest the conductor locally.
 
+### Local Manifestation
 ```bash
-# Stabilize the Conductor locally
-sudo snap install qbet --classic
+# 1. Build the Sovereign Image
+snapcraft --use-lxd
+
+# 2. Install the local conductor
+sudo snap install qbet_*.snap --dangerous --classic
 ```
 
 ---

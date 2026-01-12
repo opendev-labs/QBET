@@ -118,6 +118,16 @@
             box-shadow: 0 0 40px rgba(255, 107, 0, 0.15);
         }
 
+        .status-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.6rem;
+            color: var(--accent);
+            opacity: 0.6;
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+        }
+
         .snap-command span {
             color: var(--accent);
             opacity: 0.8;
@@ -144,8 +154,11 @@
         <h1>QBET</h1>
         <div class="tagline">Declare Reality. Observe Emergence.</div>
 
-        <div class="snap-command">
-            <span>$</span> sudo snap install qbet --classic
+        <div class="snap-command-container">
+            <div class="status-label">Local Manifestation Required (Pending Store)</div>
+            <div class="snap-command">
+                <span>$</span> snapcraft --use-lxd && sudo snap install qbet_*.snap --dangerous --classic
+            </div>
         </div>
     </div>
 
