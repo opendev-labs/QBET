@@ -85,7 +85,6 @@ def show_banner():
     print("║                                                               ║")
     print("╚═══════════════════════════════════════════════════════════════╝")
     print()
-    print()
 
 def main():
     """Main entry point"""
@@ -106,6 +105,10 @@ def main():
     run_parser.add_argument('file', help='QBET source file (.qbet)')
     run_parser.add_argument('--no-banner', action='store_true', help='Suppress banner')
     
+    # Portal command
+    portal_parser = subparsers.add_parser('portal', help='Manifest the local landing page')
+    portal_parser.add_argument('--no-banner', action='store_true', help='Suppress banner')
+    
     parser.add_argument(
         '-v', '--version',
         action='store_true',
@@ -123,6 +126,12 @@ def main():
         if not args.no_banner:
             show_banner()
         return run_file(args.file)
+    
+    if args.command == 'portal':
+        if not args.no_banner:
+            show_banner()
+        from portal.server import manifest_portal
+        return manifest_portal()
     
     # Default to REPL if no command or file and stdout is a terminal
     if sys.stdin.isatty():

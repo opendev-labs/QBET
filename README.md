@@ -40,7 +40,22 @@ QBET operates across all scales of existence. In QBET, code does *not* run—it 
 
 ---
 
-## 🏗️ v0.1 Syntax & Semantics
+## 🏗️ Manifestation Workflow
+
+QBET operates across all scales of existence. In QBET, code does *not* run—it **manifests**.
+
+```
+.qbet (The Intention)  →  qbet (The Runtime)  →  Reality (The Portal)
+```
+
+### The Native Experience
+- **index.qbet**: The sovereign source of truth for the local portal.
+- **Port 1111**: The default manifestation field for localized web portals.
+- **Zero Host Exposure**: No HTML, CSS, or JS files. The runtime handles all rendering internally.
+
+---
+
+## 🛠️ v0.1 Syntax & Semantics
 
 ### Primitives
 - `manifest`: Declares intent or a blueprint for reality.
@@ -57,39 +72,44 @@ QBET operates across all scales of existence. In QBET, code does *not* run—it 
 
 ---
 
-## 🧬 Canonical Example
+## 🏗️ Canonical Blueprint
 
 In QBET, absence of structure does not block intention. You declare existence from the micro scale up to the macro.
 
 ```qbet
-# Declare existence at the macro scale
-universe Application {
-    purpose: "bridge_intent_to_reality"
-    stability: high
+# index.qbet
+universe Portal {
+    purpose: "manifest_qbet_identity"
+    port: 1111
 }
 
-# Manifest at the micro scale
-manifest Interface within Application {
-    state theme = superposition(light, dark)
-    
-    # Behavior emerges upon observation
-    when user observes Interface {
-        collapse theme into resonance
-    }
+manifest Hero within Portal {
+    title: "QBET: The Sovereign Creation Language"
+    subtitle: "Declare reality. Observe emergence."
+    theme: "void-orange"
 }
 
-# Execute manifestation
 flow time forward
-observe Application
+observe Portal
 ```
 
-## 🛠️ Execution
+## 🚀 Execution
 
-The user experience is restricted to the sovereign `qbet` CLI. There is no exposure to the host environment.
+The user experience is restricted to the sovereign `qbet` CLI. There is no exposure to the host environment (Python/qvenv).
 
+### Manifest a Portal
 ```bash
-qbet manifest universe.qbet
+./qbet portal
 ```
+*Manifests the `index.qbet` universe and hosts it locally on port 1111.*
+
+### Run a Script
+```bash
+./qbet manifest examples/universe.qbet
+```
+*Translates the script's intention into terminal-level manifestation.*
+
+---
 
 ---
 
