@@ -1,0 +1,18 @@
+# QBET v0.2 SEMANTICS
+# The Grammar of Creation
+
+structure {
+    keyword universe {
+        property law: list
+        property port: number
+    }
+    
+    keyword entity {
+        property role: identifier
+        property intention: string
+    }
+    
+    keyword manifest: binary_op(universe, entity)
+    keyword flow: unary_op(time_direction)
+    keyword observe: unary_op(identifier)
+}

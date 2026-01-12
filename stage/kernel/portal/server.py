@@ -1,0 +1,51 @@
+import http.server
+import socketserver
+import os
+import subprocess
+from .renderer import render_portal
+
+PORT = 1111
+
+class PortalHandler(http.server.SimpleHTTPRequestHandler):
+    def do_GET(self):
+        if self.path == '/' or self.path == '/index.html':
+            self.send_response(200)
+            self.send_header('Content-type', 'text/html')
+            self.end_headers()
+            
+            # Manifest the portal from universes/index.qbet
+            content = render_portal('universes/index.qbet')
+            self.wfile.write(content.encode('utf-8'))
+        else:
+            super().do_GET()
+
+    def log_message(self, format, *args):
+        # Suppress host logging to keep the UI sovereign
+        pass
+
+def clear_port(port):
+    """Sovereign Port Clearance: Remove any occupant of the target frequency."""
+    try:
+        # Attempt to kill process on port
+        subprocess.run(['fuser', '-k', f'{port}/tcp'], capture_output=True, check=False)
+    except Exception:
+        pass
+
+def manifest_portal():
+    print(f"🌀 Clearing dimensional interference on port {PORT}...")
+    clear_port(PORT)
+    
+    print(f"🌀 Manifesting universe from universes/index.qbet...")
+    print(f"✨ Portal stabilizing on http://localhost:{PORT}")
+    
+    try:
+        socketserver.TCPServer.allow_reuse_address = True
+        with socketserver.TCPServer(("", PORT), PortalHandler) as httpd:
+            print("🌟 Observer bound. Presence established.")
+            httpd.serve_forever()
+    except KeyboardInterrupt:
+        print("\n🌙 Manifestation suspended. Returning to the void.")
+        return 0
+    except OSError as e:
+        print(f"❌ Portal error: {e}")
+        return 1

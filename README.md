@@ -43,26 +43,14 @@ QBET features an expansive conduction set grouped into five authoritative catego
 
 ---
 
-## 📦 Distribution
+## 📦 Global Distribution
 
-QBET is currently in **Sovereign Staging**. While registration with the Global Snap Store is pending, you can manifest the conductor locally.
-
-### Local Manifestation
-If you have LXD configured, use the standard build. Otherwise, use **Destructive Mode** to build directly on your sovereign host.
+QBET is distributed as a **Sovereign Snap**, ensuring a secure, sandboxed, and authoritative execution environment.
 
 ```bash
-# Option A: Standard Build (Requires LXD/Multipass)
-snapcraft --use-lxd
-
-# Option B: Destructive Mode (Builds natively on host)
-snapcraft pack --destructive-mode
-
-# Install the manifested conductor
-sudo snap install qbet_*.snap --dangerous --classic
+# Stabilize the Conductor locally
+sudo snap install qbet
 ```
-
-> [!TIP]
-> If you encounter LXD permission errors, ensure your entity is in the correct group: `sudo usermod -aG lxd $USER && newgrp lxd`.
 
 ---
 

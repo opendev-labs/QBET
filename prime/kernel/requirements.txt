@@ -1,0 +1,9 @@
+# No external dependencies required for basic QBET interpreter
+# All functionality is implemented using Python standard library
+
+# Optional: For enhanced REPL experience
+# readline  # For better input editing (usually pre-installed on Unix systems)
+
+# Development dependencies (optional)
+# pytest>=7.0.0  # For running tests
+# black>=22.0.0  # For code formatting

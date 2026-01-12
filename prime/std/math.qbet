@@ -1,0 +1,7 @@
+# Standard Math Library for QBET
+# Defined in .qbet for high-level expression
+
+module math
+
+function PI() -> 3.14159265359
+function E()  -> 2.71828182846
