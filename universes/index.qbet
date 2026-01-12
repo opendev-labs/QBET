@@ -1,0 +1,16 @@
+# QBET Creation Manifest
+# Domain: universes/index.qbet
+
+universe Portal {
+    law: quantum, consciousness
+    port: 1111
+}
+
+entity Hero {
+    role: observer
+    intention: "Declare reality. Observe emergence."
+}
+
+manifest Portal with Hero
+flow time forward
+observe Portal

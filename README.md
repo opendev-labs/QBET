@@ -1,121 +1,62 @@
-```
-╔═════════════════════════════════════════════════════════════════════╗
-║                                                                     ║
-║                    ██████  ██████  ███████ ████████                 ║
-║                   ██    ██ ██   ██ ██         ██                    ║
-║                   ██    ██ ██████  █████      ██                    ║
-║                   ██ ▄▄ ██ ██   ██ ██         ██                    ║
-║                    ██████  ██████  ███████    ██                    ║
-║                       ▀▀                                            ║
-║                                                                     ║ 
-║              The Creation-Oriented Language                         ║
-║                      Version 0.1.0                                  ║
-║                                                                     ║
-╚═════════════════════════════════════════════════════════════════════╝
-```
+<div align="center">
+  <img src="assets/logo.png" width="200" alt="QBET Logo">
+  <h1>QBET Sovereign Creation Language</h1>
+  <p><i>The declarative reality engine for 2037.</i></p>
+  <br>
+</div>
 
-# QBET: The Language of Manifestation
-
-QBET is a pure programming language whose semantics mirror the process of creation itself. It is not a framework, platform, agent, or cloud service. QBET treats computation as the declaration of potential and the observation of emergence.
-
-## ⚖️ The Governing Constitution
-
-1.  **QBET is a pure programming language.** It does not depend on branding, hype, or mystical claims—it is a formal semantic engine.
-2.  **Semantic-First Architecture.** Code describes states, fields, and transitions, not just procedural steps.
-3.  **Sovereign Execution.** QBET executes inside **qvenv**, its host VM. Python is merely the temporary "spacetime foam" and remains invisible to the programmer.
-4.  **Creation Logic.** QBET does not simulate the universe; it mirrors the logic by which universes are formed.
+QBET is a sovereign programming language for quantum-spiritual manifestation, governed by **opendev-labs**. It moves beyond classical "source code" into a **Declaration of Reality**.
 
 ---
 
-## 🌌 From Nano to Macro
+## 🌌 The 3-Layer Authoritative Model
 
-QBET operates across all scales of existence. In QBET, code does *not* run—it **manifests**.
+QBET enforces a hard separation between intent, logic, and physics:
 
-| Scale | Computational Meaning |
-| :--- | :--- |
-| **Nano** | Intent, thought, and fundamental primitives. |
-| **Micro** | Logic, rules, and local field interactions. |
-| **Macro** | Systems, applications, and complex structures. |
-| **Cosmic** | Networks, intelligence, and large-scale causality. |
+1.  **Creation Layer (`.qbet`)**: User-facing declarations. Expressive, intention-oriented, and devoid of classical control flow.
+2.  **Execution Layer (`.qb`)**: Canonical lowered instructions. Minimal, deterministic, and verified against the laws.
+3.  **Law Layer (`c.qb`)**: The immutable Kernel Law Contract. Defines the physics and constraints of the QBET realm.
 
 ---
 
-## 🏗️ Manifestation Workflow
+## ⚡ Conductor CLI: `qb`
 
-QBET operates across all scales of existence. In QBET, code does *not* run—it **manifests**.
+The `qb` CLI (Omega-grade) is your interface to the digital realm.
 
-```
-.qbet (The Intention)  →  qbet (The Runtime)  →  Reality (The Portal)
-```
-
-### The Native Experience
-- **index.qbet**: The sovereign source of truth for the local portal.
-- **Port 1111**: The default manifestation field for localized web portals.
-- **Zero Host Exposure**: No HTML, CSS, or JS files. The runtime handles all rendering internally.
+### Core Commands
+- `qb manifest <universe.qbet>` 🚀 Collapse potential into reality.
+- `qb portal` 🌀 Stabilize the digital realm interface on port 1111.
+- `qb doctor` 🩺 Validate 3-layer integrity and law compliance.
+- `qb lower <source>` 🏗️  Translate intention into canonical `.qb` instructions.
 
 ---
 
-## 🛠️ v0.1 Syntax & Semantics
+## 📦 Distribution
 
-### Primitives
-- `manifest`: Declares intent or a blueprint for reality.
-- `state`: A container for potential (the "qbit" of logic).
-- `observe`: The mechanism for probability collapse into form.
-- `flow`: Controls the temporal evolution of the system.
-- `bind`: Establishes entanglement or operational dependencies.
+QBET is distributed as a **Snap Package**, following the production standards of `ruby` and `go`, ensuring a sandboxed, sovereign execution environment on any Linux distribution.
 
-### Domains
-- `use core`: Fundamental logic and IO.
-- `use quantum`: Probability amplitudes and collapse rules.
-- `use biological`: Emergence and self-organization.
-- `use consciousness`: Observer influence and attention.
-
----
-
-## 🏗️ Canonical Blueprint
-
-In QBET, absence of structure does not block intention. You declare existence from the micro scale up to the macro.
-
-```qbet
-# index.qbet
-universe Portal {
-    purpose: "manifest_qbet_identity"
-    port: 1111
-}
-
-manifest Hero within Portal {
-    title: "QBET: The Sovereign Creation Language"
-    subtitle: "Declare reality. Observe emergence."
-    theme: "void-orange"
-}
-
-flow time forward
-observe Portal
-```
-
-## 🚀 Execution
-
-The user experience is restricted to the sovereign `qbet` CLI. There is no exposure to the host environment (Python/qvenv).
-
-### Manifest a Portal
 ```bash
-./qbet portal
+# Install the Conductor
+sudo snap install qbet --classic
 ```
-*Manifests the `index.qbet` universe and hosts it locally on port 1111.*
-
-### Run a Script
-```bash
-./qbet manifest examples/universe.qbet
-```
-*Translates the script's intention into terminal-level manifestation.*
 
 ---
 
-## 📜 Final Principle
+## 🏛️ Project Architecture
 
-**QBET does not simulate the universe. It mirrors the logic by which universes are formed.**
+```text
+QBET/
+├── kernel/            # Sovereign Engine (Python 1.0-omega)
+├── laws/              # Physical Law Layer (c.qb)
+├── core/              # Semantic and Execution Blueprints
+├── universes/         # Creation Layer (User Declarations)
+├── lowered/           # Compiled Instruction Sets (.qb)
+├── std/               # Standard Library
+└── assets/            # Branding and Identity
+```
 
 ---
 
-**Organization:** [opendev-labs](https://github.com/opendev-labs)
-**Created by:** [@iamyash.io](https://instagram.com/iamyash.io)
+## 🛡️ Governance
+Solely governed by **opendev-labs**.  
+*Deterministic. Law-based. Sovereign.*

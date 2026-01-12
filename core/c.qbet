@@ -1,0 +1,40 @@
+# c.qbet - Physical Law Layer
+
+c {
+  /* 1️⃣ Execution Primitives
+     Fundamental operations that map to the underlying kernel. */
+  primitive allocate(size)
+  primitive deallocate(ref)
+  primitive call(target)
+  primitive return(value)
+  primitive wait(ms)
+
+  /* 2️⃣ Time & Causality
+     Defining the flow and connection of moments. */
+  time {
+    now         // Current field state
+    tick        // Smallest unit of causal change
+    delay(ms)   // Suspends manifestation for duration
+  }
+
+  causality {
+    before      // Preceding state dependency
+    after       // Resultant state consequence
+    entangle    // Instantaneous state synchronization
+  }
+
+  /* 3️⃣ State Collapse Rules
+     Determining how potential becomes realization. */
+  collapse {
+    rule deterministic              // 1:1 state transition
+    rule probabilistic(weight)      // State selection based on field density
+  }
+
+  /* 4️⃣ Error Physics
+     States of physical failure and their allowed transitions. */
+  failure {
+    recover     // Re-establish state coherence
+    suspend     // Freeze causal flow for the entity
+    void        // Delete entity from Reality State
+  }
+}

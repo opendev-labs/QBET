@@ -1,0 +1,40 @@
+name: qbet
+base: core22
+version: '1.0.0-omega'
+summary: Sovereign Reality Creation Language
+description: |
+  QBET is a sovereign programming language for quantum-spiritual manifestation.
+  It moves beyond classical "source code" into a Declaration of Reality, 
+  enforced by the hard 3-layer Authoritative Model (Creation, Execution, Law).
+  Governed by opendev-labs.
+
+grade: stable
+confinement: classic # Following ruby/go style for developer tools
+
+parts:
+  qbet:
+    plugin: python
+    source: .
+    python-packages:
+      - flask
+      - requests
+    stage-packages:
+      - python3-venv
+    override-build: |
+      snapcraftctl build
+      chmod +x $SNAPCRAFT_PART_INSTALL/qb
+      ln -sf $SNAPCRAFT_PART_INSTALL/qb $SNAPCRAFT_PART_INSTALL/bin/qbet
+
+apps:
+  qbet:
+    command: qb
+    plugs:
+      - network
+      - network-bind
+      - home
+  portal:
+    command: qb portal
+    plugs:
+      - network
+      - network-bind
+      - home

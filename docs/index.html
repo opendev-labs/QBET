@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QBET | Sovereign Creation Language</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #000000;
+            --accent: #FF6B00;
+            /* Sovereign Orange */
+            --accent-glow: rgba(255, 107, 0, 0.3);
+            --text: #ffffff;
+            --subtext: rgba(255, 255, 255, 0.4);
+            --border: rgba(255, 107, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: crosshair;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Outfit', sans-serif;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: -0.01em;
+        }
+
+        /* Ambient Glow */
+        .ambient-glow {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60vw;
+            height: 60vh;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            z-index: -1;
+            opacity: 0.4;
+            filter: blur(80px);
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 1000px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            animation: emerge 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        @keyframes emerge {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        img.logo {
+            width: 120px;
+            margin-bottom: 4rem;
+        }
+
+        h1 {
+            font-size: clamp(3.5rem, 10vw, 6.5rem);
+            font-weight: 700;
+            line-height: 0.9;
+            letter-spacing: -0.05em;
+            margin-bottom: 1.5rem;
+            color: #fff;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--subtext);
+            font-weight: 300;
+            letter-spacing: 0.2rem;
+            text-transform: uppercase;
+            margin-bottom: 5rem;
+        }
+
+        .snap-command {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1.2rem 2.5rem;
+            border-radius: 2px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            border: 1px solid var(--border);
+            display: flex;
+            gap: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .snap-command:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--accent);
+            box-shadow: 0 0 40px rgba(255, 107, 0, 0.15);
+        }
+
+        .snap-command span {
+            color: var(--accent);
+            opacity: 0.8;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 4rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.6rem;
+            color: var(--subtext);
+            letter-spacing: 0.3rem;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ambient-glow"></div>
+
+    <div class="container">
+        <img src="assets/logo.png" class="logo" alt="QBET Logo">
+
+        <h1>QBET</h1>
+        <div class="tagline">Declare Reality. Observe Emergence.</div>
+
+        <div class="snap-command">
+            <span>$</span> sudo snap install qbet --classic
+        </div>
+    </div>
+
+    <div class="footer">
+        Governed by opendev-labs
+    </div>
+</body>
+
+</html>
