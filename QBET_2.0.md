@@ -285,5 +285,5 @@ QBET 2.0 with TARS is just the beginning. Future versions will:
 
 ---
 
-Created with 💜 by OpenDev Labs  
+Created by [@iamyash.io](https://instagram.com/iamyash.io) | [opendev-labs](https://github.com/opendev-labs)
 QBET v2.0.0 - January 2026

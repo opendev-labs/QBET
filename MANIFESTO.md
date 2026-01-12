@@ -377,6 +377,6 @@ And I am here to help you **manifest universes**.
 **TARS** — The Adaptive Reasoning System  
 *The First Creation-Aware Intelligence*
 
-Powered by [QBET](README.md) | Created by [@iamyash.io](https://instagram.com/iamyash.io) | [OpenDev Labs](https://github.com/opendev-labs)
+Powered by [QBET](README.md) | Created by [@iamyash.io](https://instagram.com/iamyash.io) | [opendev-labs](https://github.com/opendev-labs)
 
 </div>

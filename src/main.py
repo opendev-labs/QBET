@@ -64,7 +64,7 @@ def show_version():
     """Show version information"""
     print(f"QBET v{VERSION}")
     print("Quantum-Spiritual Programming Language")
-    print("Copyright (c) 2026 OpenDev Labs")
+    print("Copyright (c) 2026 opendev-labs")
     print()
     print("A revolutionary language bridging quantum computing,")
     print("spiritual metaphysics, and traditional programming.")
@@ -89,15 +89,21 @@ def show_banner():
 def main():
     """Main entry point"""
     parser = argparse.ArgumentParser(
-        description='QBET - Quantum-Spiritual Programming Language',
-        epilog='For more information, visit: https://github.com/opendev-labs/QBET'
+        description='QBET - The Creation-Oriented Language',
+        epilog='Governed by opendev-labs'
     )
     
-    parser.add_argument(
-        'file',
-        nargs='?',
-        help='QBET source file to execute (.qbet)'
-    )
+    subparsers = parser.add_subparsers(dest='command', help='Manifestation commands')
+    
+    # Manifest command
+    manifest_parser = subparsers.add_parser('manifest', help='Translate intention into reality')
+    manifest_parser.add_argument('file', help='QBET source file (.qbet)')
+    manifest_parser.add_argument('--no-banner', action='store_true', help='Suppress banner')
+    
+    # Run command (alias)
+    run_parser = subparsers.add_parser('run', help='Execute a QBET script')
+    run_parser.add_argument('file', help='QBET source file (.qbet)')
+    run_parser.add_argument('--no-banner', action='store_true', help='Suppress banner')
     
     parser.add_argument(
         '-v', '--version',
@@ -105,35 +111,25 @@ def main():
         help='Show version information'
     )
     
-    parser.add_argument(
-        '-i', '--interactive',
-        action='store_true',
-        help='Start interactive REPL (default if no file specified)'
-    )
-    
-    parser.add_argument(
-        '--no-banner',
-        action='store_true',
-        help='Suppress welcome banner'
-    )
-    
     args = parser.parse_args()
     
-    # Show version
     if args.version:
         show_version()
         return 0
     
-    # Execute file
-    if args.file:
+    # Handle subcommands
+    if args.command in ['manifest', 'run']:
         if not args.no_banner:
             show_banner()
         return run_file(args.file)
     
-    # Start REPL (default)
-    if not args.no_banner:
+    # Default to REPL if no command or file and stdout is a terminal
+    if sys.stdin.isatty():
         show_banner()
-    return run_repl()
+        return run_repl()
+    
+    parser.print_help()
+    return 1
 
 if __name__ == '__main__':
     sys.exit(main())

@@ -563,6 +563,7 @@ By 1.0, QBET will be:
 
 **QBET Evolution** — From Prototype to Production
 
-Created by [@iamyash.io](https://instagram.com/iamyash.io) | [OpenDev Labs](https://github.com/opendev-labs)
+Created by [@iamyash.io](https://instagram.com/iamyash.io)
+**Organization:** [opendev-labs](https://github.com/opendev-labs)
 
 </div>
