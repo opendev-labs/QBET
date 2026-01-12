@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TARS Super-Agent | QBET Interface</title>
+    <style>
+        :root {
+            --bg: #050505;
+            --text: #ffffff;
+            --accent: #00d2ff;
+            --accent-glow: rgba(0, 210, 255, 0.3);
+            --card-bg: #111;
+            --border: #222;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .header {
+            padding: 2rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .status-bar {
+            background: #1a1a1a;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background: #00ff00;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00ff00;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        p.subtitle {
+            color: #888;
+            margin-top: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .app-preview {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-top: 3rem;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .app-window {
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .window-header {
+            background: #222;
+            padding: 0.8rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .dot-red {
+            width: 12px;
+            height: 12px;
+            background: #ff5f56;
+            border-radius: 50%;
+        }
+
+        .dot-yellow {
+            width: 12px;
+            height: 12px;
+            background: #ffbd2e;
+            border-radius: 50%;
+        }
+
+        .dot-green {
+            width: 12px;
+            height: 12px;
+            background: #27c93f;
+            border-radius: 50%;
+        }
+
+        .window-content {
+            padding: 2rem;
+            min-height: 400px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .feature-item {
+            border-left: 2px solid var(--accent);
+            padding-left: 1.5rem;
+        }
+
+        .feature-item h3 {
+            margin-top: 0;
+            color: var(--accent);
+        }
+
+        .feature-item p {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .notice-box {
+            background: rgba(255, 189, 46, 0.1);
+            border: 1px solid #ffbd2e;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 4rem;
+        }
+
+        .notice-box h4 {
+            color: #ffbd2e;
+            margin-top: 0;
+        }
+
+        .btn {
+            background: var(--accent);
+            color: #000;
+            padding: 1rem 2.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 2rem;
+            transition: opacity 0.2s;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 4rem;
+            color: #444;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div style="font-weight: bold; letter-spacing: 2px;">TARS / SUPER-AGENT</div>
+        <a href="../index.html" style="color: #888; text-decoration: none;">BACK TO ECOSYSTEM</a>
+    </div>
+
+    <div class="container">
+        <div class="status-bar">
+            <div class="dot"></div>
+            SYSTEM OPERATIONAL: QBET CORE v0.1
+        </div>
+
+        <h1>Coding Super-Agent</h1>
+        <p class="subtitle">AI-powered autonomous coding engine for QBET development.</p>
+
+        <div class="app-preview">
+            <div class="app-window">
+                <div class="window-header">
+                    <div class="dot-red"></div>
+                    <div class="dot-yellow"></div>
+                    <div class="dot-green"></div>
+                    <div
+                        style="flex-grow: 1; text-align: center; font-size: 0.7rem; color: #666; font-family: sans-serif;">
+                        localhost:3000 — TARS Dashboard</div>
+                </div>
+                <div class="window-content">
+                    <div
+                        style="border: 1px dashed #333; height: 300px; display: flex; align-items: center; justify-content: center; color: #444;">
+                        [ DASHBOARD UI PREVIEW ]
+                    </div>
+                    <div style="margin-top: 2rem;">
+                        <div style="color: #00ff00; font-size: 0.9rem;">> Initializing TARS Creation Logic...</div>
+                        <div style="color: #888; font-size: 0.9rem;">> Loading submodule from /tars...</div>
+                        <div style="color: #888; font-size: 0.9rem;">> Local path:
+                            /home/cube/Gh-sync/opendev-labs/coding-super-agent/</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="feature-grid">
+            <div class="feature-item">
+                <h3>Multi-Agent Intelligence</h3>
+                <p>Support for Claude Code, OpenAI Codex, Cursor CLI, and Google Gemini. Select your preferred engine
+                    for quantum-level reasoning.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Vercel Sandbox</h3>
+                <p>Execute coding tasks in isolated, secure sandboxes with automatic repository synchronization.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Task Management</h3>
+                <p>Track autonomous task progress with real-time logging and AI-driven branch generation.</p>
+            </div>
+            <div class="feature-item">
+                <h3>QBET Integration</h3>
+                <p>Native understanding of QBET 0.1 principles, metaphors, and creation semantics.</p>
+            </div>
+        </div>
+
+        <div class="notice-box">
+            <h4>⚠️ Static Interface Notice</h4>
+            <p>You are viewing the <strong>static documentation interface</strong> of the Super-Agent. To access the
+                <strong>live autonomous features</strong> (running in your local environment), please use the local
+                development server:</p>
+            <div style="background: #000; padding: 1rem; border-radius: 5px; margin: 1rem 0; font-size: 0.9rem;">
+                <code>
+                    cd /home/cube/Gh-sync/opendev-labs/coding-super-agent/<br>
+                    pnpm install<br>
+                    pnpm dev
+                </code>
+            </div>
+            <p>Then open <strong>http://localhost:3000</strong> in your browser.</p>
+        </div>
+
+        <div style="text-align: center; margin-top: 4rem;">
+            <h2>Deploy Your Private Agent</h2>
+            <p style="color: #666;">Want a cloud-hosted version of this dashboard?</p>
+            <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fopendev-labs%2Fcoding-super-agent&env=POSTGRES_URL,ANTHROPIC_API_KEY,GITHUB_TOKEN,VERCEL_TEAM_ID,VERCEL_PROJECT_ID,VERCEL_TOKEN,AI_GATEWAY_API_KEY"
+                class="btn">DEPLOY TO VERCEL</a>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        TARS SUPER-AGENT • VERSION 1.5.0 • OPENDEV LABS
+    </div>
+</body>
+
+</html>
