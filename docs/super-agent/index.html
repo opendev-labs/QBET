@@ -4,264 +4,524 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TARS Super-Agent | QBET Interface</title>
+    <title>TARS | High-Class Super-Agent Interface</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
-            --bg: #050505;
-            --text: #ffffff;
-            --accent: #00d2ff;
-            --accent-glow: rgba(0, 210, 255, 0.3);
-            --card-bg: #111;
-            --border: #222;
+            --bg: #030303;
+            --sidebar-bg: rgba(10, 10, 10, 0.8);
+            --chat-bg: rgba(15, 15, 15, 0.5);
+            --accent: #9d50bb;
+            --accent-secondary: #6e48aa;
+            --text-main: #f0f0f0;
+            --text-dim: #a0a0a0;
+            --border: rgba(255, 255, 255, 0.08);
+            --glass: rgba(255, 255, 255, 0.03);
+            --glow: 0 0 20px rgba(157, 80, 187, 0.2);
+            --radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
         }
 
         body {
-            margin: 0;
-            padding: 0;
             background-color: var(--bg);
-            color: var(--text);
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .header {
-            padding: 2rem;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 4rem auto;
-            padding: 0 2rem;
-        }
-
-        .status-bar {
-            background: #1a1a1a;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.8rem;
-            margin-bottom: 2rem;
-        }
-
-        .dot {
-            width: 8px;
-            height: 8px;
-            background: #00ff00;
-            border-radius: 50%;
-            box-shadow: 0 0 10px #00ff00;
-        }
-
-        h1 {
-            font-size: 3rem;
-            margin: 0;
-        }
-
-        p.subtitle {
-            color: #888;
-            margin-top: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .app-preview {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1rem;
-            margin-top: 3rem;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
-        }
-
-        .app-window {
-            background: #000;
-            border-radius: 8px;
+            color: var(--text-main);
+            font-family: 'Outfit', sans-serif;
+            height: 100vh;
             overflow: hidden;
-        }
-
-        .window-header {
-            background: #222;
-            padding: 0.8rem;
             display: flex;
-            gap: 0.5rem;
         }
 
-        .dot-red {
-            width: 12px;
-            height: 12px;
-            background: #ff5f56;
-            border-radius: 50%;
+        /* Hero Background */
+        .hero-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(157, 80, 187, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(110, 72, 170, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 1) 0%, rgba(5, 5, 5, 1) 100%);
         }
 
-        .dot-yellow {
-            width: 12px;
-            height: 12px;
-            background: #ffbd2e;
-            border-radius: 50%;
+        .gradient-mesh {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.4;
+            filter: contrast(120%) brightness(120%);
+            background-image:
+                radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
+                radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
+                radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
+            animation: meshAnim 15s ease infinite alternate;
         }
 
-        .dot-green {
-            width: 12px;
-            height: 12px;
-            background: #27c93f;
-            border-radius: 50%;
+        @keyframes meshAnim {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1.1);
+            }
         }
 
-        .window-content {
-            padding: 2rem;
-            min-height: 400px;
+        /* Layout */
+        .sidebar {
+            width: 280px;
+            background: var(--sidebar-bg);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            padding: 1.5rem;
+            backdrop-filter: blur(20px);
+            z-index: 10;
         }
 
-        .feature-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-top: 4rem;
+        .main-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            position: relative;
         }
 
-        .feature-item {
-            border-left: 2px solid var(--accent);
-            padding-left: 1.5rem;
+        /* Sidebar Elements */
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 2.5rem;
         }
 
-        .feature-item h3 {
-            margin-top: 0;
-            color: var(--accent);
+        .logo-icon {
+            width: 38px;
+            height: 38px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+            border-radius: 10px;
+            box-shadow: var(--glow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
         }
 
-        .feature-item p {
-            color: #888;
-            font-size: 0.9rem;
+        .logo-text {
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
         }
 
-        .notice-box {
-            background: rgba(255, 189, 46, 0.1);
-            border: 1px solid #ffbd2e;
-            padding: 2rem;
-            border-radius: 12px;
-            margin-top: 4rem;
+        .nav-tag {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            letter-spacing: 1.5px;
+            margin-bottom: 1rem;
+            font-weight: 600;
         }
 
-        .notice-box h4 {
-            color: #ffbd2e;
-            margin-top: 0;
+        .nav-item {
+            padding: 0.8rem 1rem;
+            border-radius: var(--radius);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            color: var(--text-dim);
+            font-weight: 500;
+            border: 1px solid transparent;
         }
 
-        .btn {
-            background: var(--accent);
-            color: #000;
-            padding: 1rem 2.5rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 2rem;
-            transition: opacity 0.2s;
+        .nav-item:hover {
+            background: var(--glass);
+            color: white;
+            border-color: var(--border);
         }
 
-        .btn:hover {
-            opacity: 0.8;
+        .nav-item.active {
+            background: var(--glass);
+            color: white;
+            border-color: rgba(157, 80, 187, 0.3);
+            box-shadow: inset 0 0 10px rgba(157, 80, 187, 0.1);
         }
 
-        .footer {
+        .new-chat-btn {
+            margin-top: auto;
+            background: white;
+            color: black;
+            padding: 1rem;
+            border-radius: var(--radius);
             text-align: center;
-            padding: 4rem;
-            color: #444;
+            font-weight: 800;
+            cursor: pointer;
+            transition: transform 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .new-chat-btn:hover {
+            transform: scale(0.98);
+        }
+
+        /* Chat Area */
+        .chat-container {
+            flex-grow: 1;
+            padding: 2rem;
+            overflow-y: auto;
+            scroll-behavior: smooth;
+        }
+
+        .chat-wrapper {
+            max-width: 850px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            padding-bottom: 150px;
+        }
+
+        .hero-title {
+            text-align: center;
+            padding: 4rem 0;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-title h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(to bottom, #fff, #999);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            letter-spacing: -2px;
+        }
+
+        .hero-title p {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+        }
+
+        /* Messages */
+        .message {
+            display: flex;
+            gap: 20px;
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: var(--accent);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
             font-size: 0.8rem;
+        }
+
+        .msg-content {
+            line-height: 1.7;
+            font-size: 1.05rem;
+            color: #ececec;
+        }
+
+        .ai-msg {
+            background: var(--chat-bg);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Input Area */
+        .input-sticky {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 0 2rem;
+            z-index: 100;
+        }
+
+        .input-island {
+            width: 100%;
+            max-width: 750px;
+            background: rgba(20, 20, 20, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 10px 10px 10px 24px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .input-island:focus-within {
+            border-color: var(--accent);
+            box-shadow: 0 0 30px rgba(157, 80, 187, 0.2);
+            transform: translateY(-2px);
+        }
+
+        input {
+            background: transparent;
+            border: none;
+            color: white;
+            font-family: inherit;
+            font-size: 1.1rem;
+            flex-grow: 1;
+            outline: none;
+            padding: 10px 0;
+        }
+
+        .send-btn {
+            width: 44px;
+            height: 44px;
+            background: white;
+            border: none;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .send-btn:hover {
+            transform: rotate(-10deg) scale(1.1);
+            background: var(--accent);
+            color: white;
+        }
+
+        /* Magic UI Beams */
+        .beam {
+            position: absolute;
+            width: 2px;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, var(--accent), transparent);
+            filter: blur(1px);
+            opacity: 0.3;
+            animation: beamTravel 8s linear infinite;
+        }
+
+        @keyframes beamTravel {
+            0% {
+                top: -100px;
+                transform: translateX(0);
+            }
+
+            100% {
+                top: 120%;
+                transform: translateX(200px);
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 10px;
         }
     </style>
 </head>
 
 <body>
-    <div class="header">
-        <div style="font-weight: bold; letter-spacing: 2px;">TARS / SUPER-AGENT</div>
-        <a href="../index.html" style="color: #888; text-decoration: none;">BACK TO ECOSYSTEM</a>
+    <div class="hero-bg">
+        <div class="gradient-mesh"></div>
+        <div class="beam" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="beam" style="left: 40%; animation-delay: 3s;"></div>
+        <div class="beam" style="left: 70%; animation-delay: 6s;"></div>
     </div>
 
-    <div class="container">
-        <div class="status-bar">
-            <div class="dot"></div>
-            SYSTEM OPERATIONAL: QBET CORE v0.1
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo-area">
+            <div class="logo-icon">T</div>
+            <div class="logo-text">TARS</div>
         </div>
 
-        <h1>Coding Super-Agent</h1>
-        <p class="subtitle">AI-powered autonomous coding engine for QBET development.</p>
+        <div class="nav-tag">Conversations</div>
+        <div class="nav-item active">
+            <span>✨</span>
+            <span>Quantum Manifestation</span>
+        </div>
+        <div class="nav-item">
+            <span>⚛️</span>
+            <span>Circuit Evolution</span>
+        </div>
+        <div class="nav-item">
+            <span>🌀</span>
+            <span>Intention Logic</span>
+        </div>
 
-        <div class="app-preview">
-            <div class="app-window">
-                <div class="window-header">
-                    <div class="dot-red"></div>
-                    <div class="dot-yellow"></div>
-                    <div class="dot-green"></div>
-                    <div
-                        style="flex-grow: 1; text-align: center; font-size: 0.7rem; color: #666; font-family: sans-serif;">
-                        localhost:3000 — TARS Dashboard</div>
+        <div class="nav-tag" style="margin-top: 2rem;">Ecosystem</div>
+        <div class="nav-item" onclick="location.href='../index.html'">
+            <span>🏠</span>
+            <span>Main Portal</span>
+        </div>
+        <div class="nav-item">
+            <span>📚</span>
+            <span>Documentation</span>
+        </div>
+
+        <div class="new-chat-btn">
+            <span>+</span>
+            <span>New Act of Creation</span>
+        </div>
+    </aside>
+
+    <!-- Main Chat UI -->
+    <main class="main-content">
+        <div class="chat-container">
+            <div class="chat-wrapper" id="chat-messages">
+
+                <div class="hero-title">
+                    <h1>How can I manifest today?</h1>
+                    <p>Enter the field of pure potential with TARS.</p>
                 </div>
-                <div class="window-content">
-                    <div
-                        style="border: 1px dashed #333; height: 300px; display: flex; align-items: center; justify-content: center; color: #444;">
-                        [ DASHBOARD UI PREVIEW ]
-                    </div>
-                    <div style="margin-top: 2rem;">
-                        <div style="color: #00ff00; font-size: 0.9rem;">> Initializing TARS Creation Logic...</div>
-                        <div style="color: #888; font-size: 0.9rem;">> Loading submodule from /tars...</div>
-                        <div style="color: #888; font-size: 0.9rem;">> Local path:
-                            /home/cube/Gh-sync/opendev-labs/coding-super-agent/</div>
+
+                <!-- Example Message -->
+                <div class="message">
+                    <div class="avatar" style="background: #333;">U</div>
+                    <div class="msg-content">Tell me about the connection between QBET and the source logic of creation.
                     </div>
                 </div>
+
+                <div class="message">
+                    <div class="avatar">T</div>
+                    <div class="msg-content ai-msg">
+                        QBET is not merely a language; it is a symbolic mirror of universal emergence. When you write
+                        code in QBET, you are not just instructing a CPU—you are directing intention through a
+                        probabilistic field.
+                        By bridging **Classical Determinism** with **Quantum Superposition**, we allow software to
+                        evolve beyond static logic into a dynamic state of becoming.
+                        <br><br>
+                        I am here to help you navigate this transition from computation to creation.
+                    </div>
+                </div>
+
+                <!-- Bento Grid Style Info -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="ai-msg" style="padding: 1.2rem;">
+                        <h4 style="margin-bottom: 0.5rem; color: var(--accent);">Quantum State</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-dim);">Superposition detected. Probability field
+                            stabilized at 98.4% coherence.</p>
+                    </div>
+                    <div class="ai-msg" style="padding: 1.2rem;">
+                        <h4 style="margin-bottom: 0.5rem; color: var(--accent);">Creation Meta</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-dim);">Void parameters initialized. Awaiting
+                            intentional collapse.</p>
+                    </div>
+                </div>
+
             </div>
         </div>
 
-        <div class="feature-grid">
-            <div class="feature-item">
-                <h3>Multi-Agent Intelligence</h3>
-                <p>Support for Claude Code, OpenAI Codex, Cursor CLI, and Google Gemini. Select your preferred engine
-                    for quantum-level reasoning.</p>
-            </div>
-            <div class="feature-item">
-                <h3>Vercel Sandbox</h3>
-                <p>Execute coding tasks in isolated, secure sandboxes with automatic repository synchronization.</p>
-            </div>
-            <div class="feature-item">
-                <h3>Task Management</h3>
-                <p>Track autonomous task progress with real-time logging and AI-driven branch generation.</p>
-            </div>
-            <div class="feature-item">
-                <h3>QBET Integration</h3>
-                <p>Native understanding of QBET 0.1 principles, metaphors, and creation semantics.</p>
+        <!-- Input Sticky -->
+        <div class="input-sticky">
+            <div class="input-island">
+                <input type="text" placeholder="Ask TARS anything..." id="user-input">
+                <button class="send-btn" id="send-trigger">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
             </div>
         </div>
+    </main>
 
-        <div class="notice-box">
-            <h4>⚠️ Static Interface Notice</h4>
-            <p>You are viewing the <strong>static documentation interface</strong> of the Super-Agent. To access the
-                <strong>live autonomous features</strong> (running in your local environment), please use the local
-                development server:</p>
-            <div style="background: #000; padding: 1rem; border-radius: 5px; margin: 1rem 0; font-size: 0.9rem;">
-                <code>
-                    cd /home/cube/Gh-sync/opendev-labs/coding-super-agent/<br>
-                    pnpm install<br>
-                    pnpm dev
-                </code>
-            </div>
-            <p>Then open <strong>http://localhost:3000</strong> in your browser.</p>
-        </div>
+    <script>
+        const input = document.getElementById('user-input');
+        const trigger = document.getElementById('send-trigger');
+        const container = document.getElementById('chat-messages');
 
-        <div style="text-align: center; margin-top: 4rem;">
-            <h2>Deploy Your Private Agent</h2>
-            <p style="color: #666;">Want a cloud-hosted version of this dashboard?</p>
-            <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fopendev-labs%2Fcoding-super-agent&env=POSTGRES_URL,ANTHROPIC_API_KEY,GITHUB_TOKEN,VERCEL_TEAM_ID,VERCEL_PROJECT_ID,VERCEL_TOKEN,AI_GATEWAY_API_KEY"
-                class="btn">DEPLOY TO VERCEL</a>
-        </div>
+        function appendMessage(text, isAi = false) {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = 'message';
+            msgDiv.innerHTML = `
+                <div class="avatar" style="${isAi ? '' : 'background: #333;'}">${isAi ? 'T' : 'U'}</div>
+                <div class="msg-content ${isAi ? 'ai-msg' : ''}">${text}</div>
+            `;
+            container.appendChild(msgDiv);
+            document.querySelector('.chat-container').scrollTop = container.scrollHeight;
+        }
 
-    </div>
+        function handleSend() {
+            const val = input.value.trim();
+            if (!val) return;
 
-    <div class="footer">
-        TARS SUPER-AGENT • VERSION 1.5.0 • OPENDEV LABS
-    </div>
+            appendMessage(val);
+            input.value = '';
+
+            // Simulate AI Response
+            setTimeout(() => {
+                appendMessage("I am analyzing the probability field for your request... Our intention-driven engine is ready to manifest your code in the local workspace at <code>/home/cube/Gh-sync/opendev-labs/coding-super-agent/</code>.", true);
+            }, 1000);
+        }
+
+        trigger.addEventListener('click', handleSend);
+        input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleSend();
+        });
+
+        // Entrance animation for the hero title
+        window.addEventListener('load', () => {
+            console.log("TARS Initialized.");
+        });
+    </script>
 </body>
 
 </html>
