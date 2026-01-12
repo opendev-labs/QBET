@@ -3,11 +3,21 @@ base: core22
 version: '1.0.0-omega'
 title: QBET Sovereign Engine
 summary: Sovereign Reality Creation Language
+icon: assets/logo.png
 description: |
-  QBET is a sovereign programming language for quantum-spiritual manifestation.
-  It moves beyond classical "source code" into a Declaration of Reality, 
-  enforced by the hard 3-layer Authoritative Model (Creation, Execution, Law).
-  Governed by opendev-labs.
+  QBET (Quantum Binding & Emergence Toolchain) is a sovereign creation language 
+  designed for deterministic reality manifestation. Unlike classical imperative 
+  languages, QBET operates on a 3-layer Authoritative Model that separates 
+  intention (Creation Layer) from mechanical execution (Execution Layer), 
+  all governed by the immutable Kernel Law Contract.
+
+  Key Features:
+  - Sovereign Conduction: Translate declarative intent into low-level IR.
+  - Quantum Metaphysics: Native support for metaphorical world-building and state collapse.
+  - Deterministic Execution: Law-bound runtime ensuring coherence across all universes.
+  - Unified Toolchain: Includes the Omega-grade CLI Conductor and Visual Portal.
+
+  Governed exclusively by opendev-labs.
 license: MIT
 contact: yashramteke55555@gmail.com
 website: https://opendev-labs.github.io/QBET/
