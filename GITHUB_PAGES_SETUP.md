@@ -59,7 +59,7 @@ The GitHub Pages site includes:
 For full TARS functionality (not just the landing page), deploy to Vercel:
 
 1. Click the "Deploy to Vercel" button on the landing page
-2. Or visit: https://vercel.com/new/clone?repository-url=https://github.com/opendev-labs/coding-agent-platform
+2. Or visit: https://vercel.com/new/clone?repository-url=https://github.com/opendev-labs/coding-super-agent
 3. Configure environment variables:
    - `POSTGRES_URL`
    - `ANTHROPIC_API_KEY`
