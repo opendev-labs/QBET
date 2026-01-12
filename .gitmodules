@@ -1,6 +1,0 @@
-[submodule "tars"]
-	path = tars
-	url = https://github.com/opendev-labs/coding-super-agent.git
-[submodule "void"]
-	path = void
-	url = https://github.com/opendev-labs/void.git
