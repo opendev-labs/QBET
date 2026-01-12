@@ -1,8 +1,0 @@
-# Standard Quantum Library for QBET
-# Defined in .qbet for high-level expression
-
-module quantum
-
-primitive SUPERPOSE
-primitive ENTANGLE
-primitive COLLAPSE

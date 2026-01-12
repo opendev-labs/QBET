@@ -1,8 +1,0 @@
-# Standard Consciousness Library for QBET
-# Defined in .qbet for high-level expression
-
-module consciousness
-
-primitive OBSERVE
-primitive AWARENESS
-primitive INTENTION

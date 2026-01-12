@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv
+venv/
+ENV/
+
+# Snapcraft
+parts/
+prime/
+stage/
+*.snap
+.snapcraft/
+
+# QBET Lowered Outputs
+lowered/*.qb
+universes/*.qb
+
+# System
+.DS_Store
+nohup.out
+build_output/
