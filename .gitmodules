@@ -1,0 +1,3 @@
+[submodule "tars"]
+	path = tars
+	url = https://github.com/opendev-labs/coding-agent-platform.git

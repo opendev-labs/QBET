@@ -1,0 +1,43 @@
+# Quantum Computing Demo
+# Demonstrates quantum operations and qubit manipulation
+
+print("⚛️  QBET Quantum Computing Demo")
+print("═══════════════════════════════════")
+
+# Create qubits
+qubit q1
+qubit q2
+
+print("\n📊 Initial qubit states:")
+print("q1 probability of |0⟩: " + string(prob_zero(q1)))
+print("q1 probability of |1⟩: " + string(prob_one(q1)))
+
+# Apply Hadamard gate (create superposition)
+print("\n🌀 Applying Hadamard gate to q1...")
+hadamard(q1)
+
+print("After Hadamard:")
+print("q1 probability of |0⟩: " + string(prob_zero(q1)))
+print("q1 probability of |1⟩: " + string(prob_one(q1)))
+
+# Measure qubit
+print("\n📏 Measuring q1...")
+result = measure(q1)
+print("Measurement result: " + string(result))
+
+# Apply quantum gates
+print("\n🚪 Applying Pauli gates...")
+pauli_x(q1)
+print("Applied Pauli-X (NOT gate)")
+
+pauli_z(q2)
+print("Applied Pauli-Z gate")
+
+# Final measurements
+print("\n📊 Final measurements:")
+r1 = measure(q1)
+r2 = measure(q2)
+print("q1 measured: " + string(r1))
+print("q2 measured: " + string(r2))
+
+print("\n✨ Quantum computation complete!")

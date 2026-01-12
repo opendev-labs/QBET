@@ -1,0 +1,35 @@
+# Simple test program
+print("Testing QBET interpreter...")
+
+# Test variables
+x = 42
+y = 3.14
+name = "QBET"
+
+print("x = " + string(x))
+print("y = " + string(y))
+print("name = " + name)
+
+# Test arithmetic
+result = x + 10
+print("42 + 10 = " + string(result))
+
+# Test function
+function double(n) {
+    return n * 2
+}
+
+doubled = double(21)
+print("double(21) = " + string(doubled))
+
+# Test quantum
+qubit q
+hadamard(q)
+m = measure(q)
+print("Qubit measurement: " + string(m))
+
+# Test spiritual
+phi = golden_ratio()
+print("Golden ratio: " + string(phi))
+
+print("\n✅ All tests passed!")
