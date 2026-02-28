@@ -1,0 +1,10 @@
+
+<!-- Quantum Interface Layer -->
+<h1>QBET OMEGA</h1>
+<div style="text-align: center; font-family: 'JetBrains Mono'; color: var(--dim-green);">
+    THE BRIDGE BETWEEN REALMS
+</div>
+
+<button class="manifest-btn" onclick="manifest()">
+    MANIFEST REALITY
+</button>

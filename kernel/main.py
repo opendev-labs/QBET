@@ -24,12 +24,13 @@ IDENTITY = "opendev-labs"
 QBET_ROOT = Path(__file__).parent.parent
 
 # ANSI Colors for Quantum Matrix Aesthetic
-GREEN = "\033[38;5;46m"
+GREEN = "\033[38;5;46m" # Matrix Green
 CYAN = "\033[38;5;51m"
 PURPLE = "\033[38;5;141m"
 DIM = "\033[2m"
 RESET = "\033[0m"
 BOLD = "\033[1m"
+WHITE = "\033[1m\033[37m"
 
 def styled_print(msg, color=GREEN, bold=False):
     prefix = BOLD if bold else ""
@@ -226,7 +227,7 @@ def show_banner():
     print()
 
 def show_help():
-    """Expansive 50+ Command 'Conduction' System"""
+    """Expansive 60+ Command 'Conduction' System"""
     show_banner()
     styled_print("Usage: qb <conduction> [parameters]", CYAN, bold=True)
     
@@ -267,7 +268,7 @@ def show_help():
             ("sovereign", "Display the governing principles of the engine."),
             ("identity", "Show the system's authoritative signature.")
         ],
-        "DIMENSIONAL EVOLUTION": [
+        "DIMENSIONAL ORCHESTRATION": [
             ("expand", "Allocate more dimensional space for state vectors."),
             ("ascend", "Move current logic to a higher-level abstraction."),
             ("bridge", "Link two separate universes through a wormhole."),
@@ -277,7 +278,16 @@ def show_help():
             ("warp", "Accelerate the execution of slow manifestations."),
             ("project", "Map a 4D logic set into a 3D interface layer."),
             ("stream", "Establish a real-time intent-to-execution link."),
-            ("evolve", "Alias for schema-upgrade conduction.")
+            ("shatter", "Deconstruct a complex entity into basic law sets."),
+            ("weave", "Interlace multiple intention streams into one field.")
+        ],
+        "NEURAL INTELLIGENCE": [
+            ("think", "Invoke the transformer-intelligence for law synthesis."),
+            ("learn", "Update the local neural weights from a logic stream."),
+            ("pulse", "Check the activation state of neural layers."),
+            ("prune", "Remove low-weighted synaptic connections."),
+            ("ghost", "Instantiate a non-physical consciousness agent."),
+            ("neural", "Alias for intelligence orchestration commands.")
         ],
         "SYSTEM TRANSCENDENCE": [
             ("repl", "Interactive dialogue with the kernel."),
@@ -294,9 +304,9 @@ def show_help():
     }
 
     for cat, cmds in cats.items():
-        print(f"\n{BOLD}{cat}{RESET}")
+        print(f"\n{BOLD}{WHITE}{cat}{RESET}")
         for cmd, desc in cmds:
-            print(f"  {GREEN}{cmd:<12}{RESET} {DIM}{desc}{RESET}")
+            print(f"  {GREEN}{cmd:<12}{RESET} {CYAN}{desc}{RESET}")
     
     print(f"\n{BOLD}Governed by {IDENTITY} // 2037 Ready{RESET}\n")
 
@@ -345,6 +355,10 @@ def main():
     # Evolve command
     evolve_parser = subparsers.add_parser('evolve', help='Upgrade universe/schema safely')
     evolve_parser.add_argument('schema', help='New schema to manifest')
+
+    # Kill command
+    kill_parser = subparsers.add_parser('kill', help='Terminate sovereign processes')
+    kill_parser.add_argument('target', help='Target to kill (e.g. portal)')
 
     # Help command
     subparsers.add_parser('help', help='Show sovereign help')
@@ -396,6 +410,17 @@ def main():
 
     if args.command == 'evolve':
         return run_evolution(args.schema)
+
+    if args.command == 'kill':
+        if args.target == 'portal':
+            import subprocess
+            print("🌀 [bold #5fff00]Terminating portal frequency on port 1111...[/]")
+            subprocess.run(['fuser', '-k', '1111/tcp'], capture_output=True)
+            print("✨ [bold white]Portal connection severed.[/]")
+            return 0
+        else:
+            print(f"❌ Unknown target: {args.target}")
+            return 1
     
     if args.command == 'version':
         show_version()

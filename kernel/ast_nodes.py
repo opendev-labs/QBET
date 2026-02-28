@@ -196,3 +196,50 @@ class DharmaAction(ASTNode):
     def __init__(self, process, purpose):
         self.process = process
         self.purpose = purpose
+
+# ============= Web/DOM Nodes =============
+
+class HTMLElement(ASTNode):
+    """HTML Element node"""
+    def __init__(self, tag_name, attributes=None, children=None):
+        self.tag_name = tag_name
+        self.attributes = attributes or {}
+        self.children = children or []
+
+class CSSRule(ASTNode):
+    """CSS Rule node"""
+    def __init__(self, selector, properties):
+        self.selector = selector
+        self.properties = properties # Dictionary3
+
+class JSScript(ASTNode):
+    """JS Script node"""
+    def __init__(self, content):
+        self.content = content
+
+# ============= Physics of Creation Nodes =============
+
+class CellCreation(ASTNode):
+    """Biological/Digital Cell Metaphor"""
+    def __init__(self, name, charge_type="neutral", capacity=1.0):
+        self.name = name
+        self.charge_type = charge_type # positive, negative, neutral
+        self.capacity = capacity
+
+class FrequencyDefinition(ASTNode):
+    """Vibrational Frequency"""
+    def __init__(self, hz, resonance_target):
+        self.hz = hz
+        self.resonance_target = resonance_target
+
+class MatterDefinition(ASTNode):
+    """Physical Matter"""
+    def __init__(self, type, mass):
+        self.type = type
+        self.mass = mass
+
+class AntimatterDefinition(ASTNode):
+    """Mirror/Antimatter"""
+    def __init__(self, source_matter):
+        self.source_matter = source_matter
+

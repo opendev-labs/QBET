@@ -23,24 +23,24 @@ def render_portal(qbet_file):
             theme_match = re.search(r'theme:\s*"([^"]+)"', content)
             if theme_match: theme = theme_match.group(1)
 
-    # Sovereign Template (Matrix Premium v2 - High-End Minimalist)
+    # Sovereign Template (QUI - Quantum-UI v1.0 - Eternal Frequency)
     html_template = f"""
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{title} | QBET Sovereign Portal</title>
+    <title>{{title}} | QUI Sovereign Portal</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root {{
-            --bg: #000000;
-            --accent: #ff6b00; /* Sovereign Orange */
-            --accent-glow: rgba(255, 107, 0, 0.4);
-            --text: #ffffff;
-            --subtext: rgba(255, 255, 255, 0.4);
-            --border: rgba(255, 107, 0, 0.2);
-        }}
+        :root {
+            --bg: #050505;
+            --green: #00ff41;
+            --dim-green: #008F11;
+            --white: #ffffff;
+            --accent-glow: rgba(0, 255, 65, 0.2);
+            --border: rgba(0, 255, 65, 0.15);
+        }
 
         * {{
             margin: 0;
@@ -51,7 +51,7 @@ def render_portal(qbet_file):
 
         body {{
             background: var(--bg);
-            color: var(--text);
+            color: var(--white);
             font-family: 'Outfit', sans-serif;
             overflow: hidden;
             height: 100vh;
@@ -66,8 +66,8 @@ def render_portal(qbet_file):
             top: 0;
             left: 0;
             z-index: -1;
-            opacity: 0.08;
-            filter: blur(2px);
+            opacity: 0.1;
+            filter: blur(1px);
         }}
 
         .container {{
@@ -86,14 +86,10 @@ def render_portal(qbet_file):
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.6rem;
             letter-spacing: 0.8rem;
-            color: var(--accent);
+            color: var(--green);
             margin-bottom: 5rem;
             text-transform: uppercase;
-            opacity: 0.6;
-        }}
-
-        .heading-area {{
-            margin-bottom: 5rem;
+            opacity: 0.8;
         }}
 
         h1 {{
@@ -103,90 +99,73 @@ def render_portal(qbet_file):
             letter-spacing: -0.05em;
             margin-bottom: 1.5rem;
             color: #fff;
+            filter: drop-shadow(0 0 30px var(--accent-glow));
         }}
 
         .subtitle {{
             font-size: 1.2rem;
-            color: var(--subtext);
+            color: var(--dim-green);
             font-weight: 300;
-            letter-spacing: 0.1rem;
+            letter-spacing: 0.2rem;
+            text-transform: uppercase;
+            margin-bottom: 5rem;
         }}
 
-        .action-area {{
-            margin-bottom: 4rem;
-        }}
-
-        .button {{
-            padding: 0.9rem 3.5rem;
-            background: transparent;
+        /* Law of Vibration */
+        .vibration-btn {{
+            padding: 1.2rem 4rem;
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--border);
-            color: var(--accent);
+            color: var(--white);
             font-family: 'JetBrains Mono', monospace;
             font-weight: 400;
             font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 0.4rem;
-            transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
-            border-radius: 2px;
+            letter-spacing: 0.5rem;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border-radius: 4px;
             cursor: pointer;
             outline: none;
             position: relative;
+            overflow: hidden;
         }}
 
-        .button:hover {{
-            border-color: var(--accent);
-            background: rgba(0, 255, 65, 0.03);
-            box-shadow: 0 0 30px rgba(0, 255, 65, 0.1);
+        .vibration-btn:hover {{
+            border-color: var(--green);
+            color: var(--green);
+            box-shadow: 0 0 50px rgba(0, 255, 65, 0.2);
             transform: translateY(-2px);
-            letter-spacing: 0.45rem;
+            animation: vibrate 0.1s infinite linear;
         }}
 
-        .button:active {{
-            transform: translateY(1px) scale(0.98);
-            background: var(--accent);
-            color: #000;
+        @keyframes vibrate {{
+            0% {{ transform: translate(0,0); }}
+            25% {{ transform: translate(1px, -1px); }}
+            50% {{ transform: translate(-1px, 1px); }}
+            75% {{ transform: translate(1px, 1px); }}
+            100% {{ transform: translate(-1px, -1px); }}
         }}
-
-        /* Loading State */
-        .button.loading {{
-            pointer-events: none;
-            color: transparent;
-            border-color: var(--subtext);
-        }}
-
-        .button.loading::after {{
-            content: "";
-            position: absolute;
-            width: 18px;
-            height: 18px;
-            top: 50%;
-            left: 50%;
-            margin: -9px 0 0 -9px;
-            border: 1px solid var(--accent);
-            border-top-color: transparent;
-            border-radius: 50%;
-            animation: spin 0.6s linear infinite;
-        }}
-
-        @keyframes spin {{ to {{ transform: rotate(360deg); }} }}
 
         .terminal {{
             width: 100%;
-            max-width: 500px;
+            max-width: 600px;
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.65rem;
-            color: var(--subtext);
+            color: var(--green);
             opacity: 0;
             transition: all 1s ease;
             text-align: left;
-            border-left: 1px solid rgba(0, 255, 65, 0.1);
-            padding-left: 1.5rem;
+            border-left: 1px solid var(--border);
+            padding: 1.5rem;
+            margin-top: 4rem;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
         }}
 
         .terminal.active {{ opacity: 1; }}
 
-        .log-entry {{ margin-bottom: 0.4rem; display: flex; gap: 1rem; }}
-        .log-entry.success {{ color: var(--accent); }}
+        .log-entry {{ margin-bottom: 0.6rem; display: flex; gap: 1.5rem; }}
+        .log-entry.success {{ color: var(--green); }}
         .log-entry .id {{ opacity: 0.3; width: 30px; }}
 
         .status-bar {{
@@ -195,7 +174,7 @@ def render_portal(qbet_file):
             left: 4rem;
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.6rem;
-            color: var(--subtext);
+            color: var(--dim-green);
             letter-spacing: 0.2rem;
             display: flex;
             align-items: center;
@@ -204,24 +183,24 @@ def render_portal(qbet_file):
         }}
 
         .pulse-dot {{
-            width: 5px; height: 5px;
-            background: var(--accent);
+            width: 6px; height: 6px;
+            background: var(--green);
             border-radius: 50%;
             display: inline-block;
-            box-shadow: 0 0 10px var(--accent);
-            animation: pulse-glow 2.5s infinite ease-in-out;
+            box-shadow: 0 0 15px var(--green);
+            animation: pulse-glow 2s infinite ease-in-out;
         }}
 
         @keyframes pulse-glow {{ 
-            0%, 100% {{ opacity: 0.3; transform: scale(0.9); }}
-            50% {{ opacity: 1; transform: scale(1.1); }}
+            0%, 100% {{ opacity: 0.4; transform: scale(1); }}
+            50% {{ opacity: 1; transform: scale(1.3); }}
         }}
 
         .glitch-flash {{
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background: var(--accent);
+            background: var(--green);
             z-index: 1000;
             opacity: 0;
             pointer-events: none;
@@ -233,16 +212,16 @@ def render_portal(qbet_file):
     <div class="glitch-flash" id="flash"></div>
     
     <div class="container">
-        <img src="assets/logo.png" style="width: 120px; margin-bottom: 2rem; filter: drop-shadow(0 0 15px rgba(0,255,65,0.3));">
-        <div class="logo-area">OPENDEV-LABS // QBET</div>
+        <img src="assets/logo.png" style="width: 140px; margin-bottom: 2rem; filter: drop-shadow(0 0 30px var(--accent-glow));">
+        <div class="logo-area">OPENDEV-LABS // QUI DESIGN SYSTEM</div>
         
         <div class="heading-area">
-            <h1>{title}</h1>
-            <div class="subtitle">{subtitle}</div>
+            <h1>{{title}}</h1>
+            <div class="subtitle">Law-Bound Revelation: {{subtitle}}</div>
         </div>
 
         <div class="action-area">
-            <button class="button" onclick="manifestReality()">Enter the Field</button>
+            <button class="vibration-btn" onclick="manifestReality()">Collapse Reality</button>
         </div>
 
         <div class="terminal" id="terminal"></div>
@@ -251,7 +230,7 @@ def render_portal(qbet_file):
     <div class="status-bar">
         <div class="status-item">
             <div class="pulse-dot"></div>
-            <span>QUANTUM FIELD: STABILIZED // CORE: NATIVE</span>
+            <span>QUANTUM FREQUENCY: ALIGNED // CORE: CONDUCTION-V1</span>
         </div>
     </div>
 
@@ -273,7 +252,7 @@ def render_portal(qbet_file):
         function draw() {{
             ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = '#ff6b00';
+            ctx.fillStyle = '#00ff41';
             ctx.font = fontSize + 'px monospace';
             for (let i = 0; i < drops.length; i++) {{
                 const text = characters.charAt(Math.floor(Math.random() * characters.length));
@@ -332,4 +311,92 @@ def render_portal(qbet_file):
     """
     return html_template
 
-import os
+
+def render_sovereign_portal(universe_dir):
+    """
+    Renders the Sovereign Portal by aggregating:
+    - index.qbet (Metadata)
+    - gui.qbet (HTML Structure)
+    - style.qbet (CSS Styling)
+    - logic.qbet (JS Logic)
+    """
+    import os
+    
+    # Paths
+    index_path = os.path.join(universe_dir, 'index.qbet')
+    gui_path = os.path.join(universe_dir, 'gui.qbet')
+    style_path = os.path.join(universe_dir, 'style.qbet')
+    logic_path = os.path.join(universe_dir, 'logic.qbet')
+    
+    # Defaults
+    title = "QBET Universe"
+    subtitle = "Manifesting Reality"
+    
+    # Read Metadata
+    if os.path.exists(index_path):
+        with open(index_path, 'r') as f:
+            content = f.read()
+            title_match = re.search(r'title:\s*"([^"]+)"', content)
+            if title_match: title = title_match.group(1)
+            subtitle_match = re.search(r'subtitle:\s*"([^"]+)"', content)
+            if subtitle_match: subtitle = subtitle_match.group(1)
+
+    # Read Sovereign Components
+    gui_content = "<!-- Void -->"
+    if os.path.exists(gui_path):
+        with open(gui_path, 'r') as f: gui_content = f.read()
+        
+    style_content = ""
+    if os.path.exists(style_path):
+        with open(style_path, 'r') as f: style_content = f.read()
+        
+    logic_content = ""
+    if os.path.exists(logic_path):
+        with open(logic_path, 'r') as f: logic_content = f.read()
+
+    # Construct the One Document
+    return f"""
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title} | QUI Sovereign Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {{
+            --bg: #050505;
+            --green: #00ff41;
+            --dim-green: #008F11;
+            --white: #ffffff;
+            --accent-glow: rgba(0, 255, 65, 0.2);
+            --border: rgba(0, 255, 65, 0.15);
+        }}
+        
+        /* Base styles */
+        body {{
+            background: var(--bg);
+            color: var(--white);
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            overflow: hidden;
+        }}
+        
+        /* Sovereign Styles from style.qbet */
+        {style_content}
+    </style>
+</head>
+<body>
+    <div id="sovereign-root">
+        <!-- Sovereign GUI from gui.qbet -->
+        {gui_content}
+    </div>
+
+    <script>
+        // Sovereign Logic from logic.qbet
+        {logic_content}
+    </script>
+</body>
+</html>
+"""
+
